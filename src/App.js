@@ -1,28 +1,29 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './App.css';
-import { Sidebar } from './components/Sidebar';
-import { Home } from './pages/Home';
-import { Trending } from './components/trending/Trending';
-import { GlobalProvider } from './context/GlobalState';
-import { Status } from './pages/Status';
-import ScrollToTop from './utils/ScrollToTop';
-import { Profile } from './pages/Profile';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import { Sidebar } from "./components/Sidebar";
+import { Home } from "./pages/Home";
+import { Trending } from "./components/trending/Trending";
+import { GlobalProvider } from "./context/GlobalState";
+import { Status } from "./pages/Status";
+import ScrollToTop from "./utils/ScrollToTop";
+import { Profile } from "./pages/Profile";
 
 function App() {
   return (
-    <GlobalProvider >
-      <Router >
-
+    <GlobalProvider>
+      <Router>
         <ScrollToTop>
           <div className="App">
             <div className="side-nav">
               <Sidebar />
             </div>
             <div className="main">
-              <Route exact path="/" component={Home} />
-              <Route exact path="/:id" component={Profile} />
-              <Route exact path="/status/:id" component={Status} />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/:id" element={<Profile />} />
+                <Route path="/status/:id" element={<Status />} />
+              </Routes>
             </div>
 
             <div className="trending">
@@ -30,7 +31,6 @@ function App() {
             </div>
           </div>
         </ScrollToTop>
-
       </Router>
     </GlobalProvider>
   );
