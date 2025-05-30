@@ -70,7 +70,6 @@ export const Sidebar = () => {
             </div>
           </li>
         </ul>
-        <div className="btn tweet-btn text-center">Tweet</div>
       </div>
     </div>
   );
